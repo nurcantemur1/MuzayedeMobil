@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.myapplication.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home"/>
+
+
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.myapplication.ui.gallery.GalleryFragment"
+        android:label="Gallery"
+        tools:layout="@layout/fragment_gallery"/>
+
+    <fragment
+        android:id="@+id/nav_kisisel"
+        android:name="com.example.myapplication.ui.kisisel.KisiselFragment"
+        android:label="@string/menu_kisisel"
+        tools:layout="@layout/fragment_kisisel" />
+
+
+    <activity
+        android:id="@+id/nav_muzayedem"
+        android:name="com.example.myapplication.ui.muzayedelerim.MuzayedelerimActivity"
+        android:label="@string/menu_muzayedem"
+        tools:layout="@layout/fragment_muzayedem" />
+
+    <activity
+        android:id="@+id/nav_urun"
+        android:name="com.example.myapplication.ui.urunlerim.UrunlerimActivity"
+        android:label="@string/menu_urunlerim"
+        tools:layout="@layout/fragment_urunum" />
+    <fragment
+        android:id="@+id/nav_peylistesi"
+        android:name="com.example.myapplication.ui.peylistesi.PeyListFragment"
+        android:label="@string/menu_peylist"
+        tools:layout="@layout/fragment_peylistesi" />
+    <fragment
+        android:id="@+id/nav_kurallar"
+        android:name="com.example.myapplication.ui.kurallar.KurallarFragment"
+        android:label="@string/menu_kurallar"
+        tools:layout="@layout/kurallar_fragment" />
+    <fragment
+        android:id="@+id/nav_siparis"
+        android:name="com.example.myapplication.ui.siparis.SiparisFragment"
+        android:label="@string/menu_siparis"
+        tools:layout="@layout/fragment_siparis" />
+    <fragment
+        android:id="@+id/nav_out"
+        android:name="com.example.myapplication.ui.cikis.CikisFragment"
+        android:label="@string/menu_out"
+        tools:layout="@layout/fragment_out" />
+    <activity
+        android:id="@+id/murunleriActivity"
+        android:name="com.example.myapplication.ui.murunleri.MurunleriActivity"
+        android:label="activity_murunleri"
+        tools:layout="@layout/activity_murunleri" />
+
+
+</navigation>

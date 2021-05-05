@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/galeri"
+            android:title="@string/menu_galeri" />
+    </group>
+
+    <item android:title="Bilgilerim">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                android:id="@+id/nav_kisisel"
+                android:icon="@drawable/person"
+                android:title="@string/menu_kisisel" />
+                <item
+                    android:id="@+id/nav_muzayedem"
+                    android:icon="@drawable/mm"
+                    android:title="@string/menu_muzayedem" />
+                <item
+                    android:id="@+id/nav_urun"
+                    android:icon="@drawable/mm"
+                    android:title="@string/menu_urunlerim" />
+                <item
+                android:id="@+id/nav_kurallar"
+                android:icon="@drawable/info"
+                android:title="@string/menu_kurallar" />
+                <item
+                    android:id="@+id/nav_peylistesi"
+                    android:icon="@drawable/list"
+                    android:title="@string/menu_peylist" />
+                <item
+                    android:id="@+id/nav_siparis"
+                    android:icon="@drawable/png"
+                    android:title="@string/menu_siparis" />
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Çıkış">
+        <menu>
+             <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_out"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="@string/menu_out"
+                />
+             </group>
+        </menu>
+    </item>
+</menu>

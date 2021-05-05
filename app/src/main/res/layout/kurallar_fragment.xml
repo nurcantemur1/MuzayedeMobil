@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.kurallar.KurallarFragment">
+
+    <TextView
+        android:id="@+id/baslik1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Muzayede App Nedir?"
+        android:textColor="#000000"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/aciklama1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    Online hizmet vererek tüm müzayedelere kolaylıkla ulaşabileceğiniz ve lotlara pey verebileceğiniz bir mobil uygulamadır.
+Muzayede App ücretsiz bir uygulamadır.Kullanıcılara ek ücretler yansıtmaz. "
+        android:textColor="#323030"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/baslik1" />
+
+    <TextView
+        android:id="@+id/baslik2"
+        android:layout_width="414dp"
+        android:layout_height="31dp"
+        android:text="Müzayede App Kuralları\n"
+        android:textColor="#000000"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aciklama1" />
+
+    <TextView
+        android:id="@+id/aciklama2"
+        android:layout_width="0dp"
+        android:layout_height="490dp"
+        android:text="    Şirketimiz aracı durumdadır. Müzayedede satılan mallar satıcılarına aittir. Malı en yüksek pey veren kişi alır. Bir mala pey süren tek kişi ise, o malı başlangıç fiyatına alır.Şayet birden fazla ise, en fazla pey veren, kendisinden önceki pey verenin aşağıda yazılı oranlar dahilinde ilavesiyle o malı alır.\nMüzayedeye katılanlardan iki kişinin aynı mala, aynı peyi verme halinde, mal verilen bu fiyata satılırsa, bu mal ilk pey gönderene verilecektir. Belirtilmiş olan fiyatlar başlangıç fiyatlarıdır.
+Müzayedelerimize başlangıç sayfasında belirtilen saate kadar  internet üzerinden pey verebilirsiniz.Sadece internet üzerinden yapılan bir müzayede ise ilgili sayfada gösterilen sayacın sıfırlanmasıyla müzayede sona erer ve sonuçlar kesinleşir.\n
+   Müzayede pey artırım şekli : 50 TL’ ye kadar - 1 TL 50 TL – 100 TL arası – 5 TL 100 TL – 250 TL arası – 10 TL 250 TL – 1000 TL arası – 25 TL
+Sitemize üye olanlar burada yazılı şartları kabul etmiş sayılırlar."
+        android:textColor="#323030"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/baslik2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

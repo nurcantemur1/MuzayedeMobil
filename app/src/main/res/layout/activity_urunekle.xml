@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/urunadi"
+        android:layout_width="269dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/btnn"
+        android:ems="10"
+        android:hint="Ürün Adı"
+        android:inputType="textPersonName"
+        android:textColorHint="#000000"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/uaciklamasi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/uaciklamasi"
+        android:layout_width="264dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/btnn"
+        android:ems="10"
+        android:hint="Ürün Açıklaması"
+        android:inputType="textPersonName"
+        android:textColorHint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/uadet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunadi" />
+
+    <EditText
+        android:id="@+id/uadet"
+        android:layout_width="265dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/btnn"
+        android:ems="10"
+        android:hint="Ürün Adedi"
+        android:inputType="number"
+        android:textColorHint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/ufiyat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uaciklamasi" />
+
+    <EditText
+        android:id="@+id/ufiyat"
+        android:layout_width="265dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/btnn"
+        android:ems="10"
+        android:hint="Ürün Fiyatı"
+        android:inputType="numberDecimal"
+        android:textColorHint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/kaydet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uadet" />
+
+    <Button
+        android:id="@+id/kaydet"
+        android:layout_width="162dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="112dp"
+        android:background="@drawable/olustur"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ufiyat" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Ürün Ekle"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

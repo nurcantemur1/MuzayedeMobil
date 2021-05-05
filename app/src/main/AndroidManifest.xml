@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.myapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".SingInActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".KayitActivity" />
+        <activity android:name=".LognActivity" />
+        <activity android:name=".ui.muzayedelerim.MuzayedelerimActivity" />
+        <activity android:name=".ui.muzayedelerim.MUrunEkleActivity"></activity>
+        <activity android:name=".ui.muzayedelerim.YeniUrun"></activity>
+        <activity android:name=".ui.muzayedelerim.MuzayedeDetay" />
+        <activity android:name=".ui.urunlerim.UrunlerimActivity" />
+        <activity android:name=".ui.urunlerim.UrunDetay" />
+        <activity android:name=".ui.urunlerim.YeniUrun" />
+        <activity android:name=".ui.murunleri.MurunleriActivity" />
+        <activity android:name=".ui.murunleri.CanliActivity" />
+    </application>
+
+</manifest>
