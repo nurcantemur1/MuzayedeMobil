@@ -4,7 +4,7 @@ public class MuzayedeUrunleri {
     public int ID;
     public int muzayedeID;
     public int urunID;
-  //  public Urun urun;
+
 
     public int getUrunID() {
         return urunID;
@@ -30,11 +30,4 @@ public class MuzayedeUrunleri {
         this.muzayedeID = muzayedeID;
     }
 
-   /* public Urun getUrun() {
-        return urun;
-    }
-
-    public void setUrun(Urun urun) {
-        this.urun = urun;
-    }*/
 }

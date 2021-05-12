@@ -20,6 +20,7 @@ import com.example.myapplication.Listeners.ThreadListener;
 import com.example.myapplication.R;
 import com.example.myapplication.Service.LocalService;
 import com.example.myapplication.Service.Retrofit;
+import com.example.myapplication.Tablolar.KartBilgileri;
 import com.example.myapplication.Tablolar.Urun;
 
 import java.util.ArrayList;
@@ -31,13 +32,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CanliActivity  extends AppCompatActivity {
-    int id;
+    int mid;
     TextView muzayedeadi,urunadi,urunaciklamasi,urunadedi,urunfiyat,pey;
     MuzayedeDetayDto murunleriModel;
     ProgressBar progressBar;
     Button peyver;
     int counter = 0;
-    int i=0;
+    int i=7;
     int sonpeyUserId=0;
     Thread thread;
     ThreadListener threadListener;
@@ -53,9 +54,9 @@ public class CanliActivity  extends AppCompatActivity {
         peyver = findViewById(R.id.peyver);
         pey = findViewById(R.id.pey);
         progressBar = findViewById(R.id.progressBar);
-        id=this.getIntent().getIntExtra("id",0);
-        Log.e("MuzayedeId", String.valueOf(id));
-        getMUrunleri(id);
+        mid=this.getIntent().getIntExtra("id",0);
+        Log.e("MuzayedeId", String.valueOf(mid));
+        getMUrunleri(mid);
 
         setThreadListener(new ThreadListener() {
             @Override
@@ -121,31 +122,32 @@ public class CanliActivity  extends AppCompatActivity {
         peyver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 String kid = new LocalService(getApplicationContext()).get("userId");
-                if(kid == null){
+                int kid = Integer.parseInt(new LocalService(getApplicationContext()).get("userId"));
+                if(kid <= 0){
                     Toast.makeText(getApplicationContext(), "Üye girişi yapınız", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                  // Toast.makeText(getApplicationContext(), sonpeyUserId+"-"+kid+"-"+urunModel.getMurunid(), Toast.LENGTH_SHORT).show();
+                    Log.e("sonid",sonpeyUserId+"-"+kid);
+                    if(sonpeyUserId == kid){
+                        Toast.makeText(getApplicationContext(), "Üst üste pey veremezsiniz", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
                         Log.e("Seçilen MurunId", String.valueOf(urunModel.getMurunid()));
-                        Call<KullaniciPeyDto> call2 = Retrofit.getKullaniciPeyService().sonpeyupdate(Integer.parseInt(kid),urunModel.getMurunid());
+                        Call<KullaniciPeyDto> call2 = Retrofit.getKullaniciPeyService().sonpeyupdate(kid,urunModel.getMurunid());
                         call2.enqueue(new Callback<KullaniciPeyDto>() {
                             @Override
                             public void onResponse(Call<KullaniciPeyDto> call, Response<KullaniciPeyDto> response) {
                                 if(response.isSuccessful()){
                                     KullaniciPeyDto dto1 = response.body();
-                                    //Log.e("5murunid", String.valueOf(dto1.getMurunid()));
                                     if(dto1 != null){
                                         pey.setText(String.valueOf(dto1.getPey()));
                                         sonpeyUserId = dto1.getKullaniciID();
-                                        counter= counter*80/100;
-                                    }
-                                    else{
-                                        Log.e("hata",String.valueOf(response.code()));
+                                        counter= counter*50/100;
+                                        Toast.makeText(getApplicationContext(), "Başarılı", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                                 else {
-                                    Toast.makeText(getApplicationContext(), "Üst üste pey veremezsiniz", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Yetersiz Bakiye", Toast.LENGTH_SHORT).show();
                                 }
                             }
                             @Override
@@ -154,6 +156,8 @@ public class CanliActivity  extends AppCompatActivity {
                             }
                         });
                     }
+                    }
+                //  Toast.makeText(getApplicationContext(), sonpeyUserId+"-"+kid+"-"+urunModel.getMurunid(), Toast.LENGTH_SHORT).show();
             }
         });
         ProgressKontrol();
@@ -173,7 +177,7 @@ public class CanliActivity  extends AppCompatActivity {
 
                                 Log.e("ikinciid", String.valueOf(i));
                                 Intent intent = new Intent(getApplicationContext(),MurunleriActivity.class);
-                                intent.putExtra("id",id);
+                                intent.putExtra("id",mid);
                                 startActivity(intent);
                                 threadListener.cancel();
                                 break;

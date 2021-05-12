@@ -52,7 +52,6 @@ public class KayitActivity extends AppCompatActivity {
                                          else{
                                              Log.e("kullanici", String.valueOf(response.code()));
                                          }
-
                                      }
 
                                      @Override

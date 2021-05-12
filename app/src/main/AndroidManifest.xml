@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ui.kisisel.KisiselBilgilerimActivity"></activity>
         <activity
             android:name=".SingInActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -30,8 +30,8 @@
         <activity android:name=".KayitActivity" />
         <activity android:name=".LognActivity" />
         <activity android:name=".ui.muzayedelerim.MuzayedelerimActivity" />
-        <activity android:name=".ui.muzayedelerim.MUrunEkleActivity"></activity>
-        <activity android:name=".ui.muzayedelerim.YeniUrun"></activity>
+        <activity android:name=".ui.muzayedelerim.MUrunEkleActivity" />
+        <activity android:name=".ui.muzayedelerim.YeniUrun" />
         <activity android:name=".ui.muzayedelerim.MuzayedeDetay" />
         <activity android:name=".ui.urunlerim.UrunlerimActivity" />
         <activity android:name=".ui.urunlerim.UrunDetay" />

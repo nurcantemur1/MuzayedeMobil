@@ -89,4 +89,19 @@ public class Retrofit {
         }
         return murunleriService;
     }
+
+    private static KartBService kartbService = null;
+    private static String BASE_URL7="http://192.168.1.107:81/api/kartbilgileri/";
+    public static KartBService getKartBService () {
+        if ( kartbService == null) {
+            retrofit2.Retrofit retrofit = new retrofit2.Retrofit
+                    .Builder()
+                    .baseUrl(BASE_URL7)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            kartbService = retrofit.create(KartBService.class);
+
+        }
+        return kartbService;
+    }
 }

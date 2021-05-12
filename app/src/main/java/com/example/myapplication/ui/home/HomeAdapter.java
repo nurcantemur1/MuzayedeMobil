@@ -21,6 +21,7 @@ import com.example.myapplication.Model.MyDateFormat;
 import com.example.myapplication.R;
 import com.example.myapplication.Tablolar.Muzayede;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Timer;
@@ -36,6 +37,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public HomeAdapter(Activity activity, ArrayList<Muzayede> muzayedeArrayList) {
         this.activity = activity;
         this.muzayedeArrayList = muzayedeArrayList;
+        this.muzayedeArrayList.get(0).setIzlenme(1);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

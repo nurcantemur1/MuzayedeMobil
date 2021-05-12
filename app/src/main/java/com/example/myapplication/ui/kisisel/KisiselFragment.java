@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.kisisel;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;

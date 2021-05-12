@@ -46,8 +46,6 @@ public class GalleryViewModel extends RecyclerView.Adapter<GalleryViewModel.View
         return urunArrayList.size();
     }
 
-
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView urunadi,urunaciklamasi,urunfiyat;
         Button sepet;
@@ -57,8 +55,8 @@ public class GalleryViewModel extends RecyclerView.Adapter<GalleryViewModel.View
             urunaciklamasi=itemView.findViewById(R.id.urunaciklamasi);
             urunfiyat = itemView.findViewById(R.id.urunfiyat);
         }
-        public void setListItemSelectedListener(IListItemSelectedListener l){
-             itemSelectedListener = l;
-        }
+    }
+    public void setListItemSelectedListener(IListItemSelectedListener l){
+        itemSelectedListener = l;
     }
 }

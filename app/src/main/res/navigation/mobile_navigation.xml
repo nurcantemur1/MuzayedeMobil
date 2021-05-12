@@ -21,9 +21,9 @@
 
     <fragment
         android:id="@+id/nav_kisisel"
-        android:name="com.example.myapplication.ui.kisisel.KisiselFragment"
+        android:name="com.example.myapplication.ui.kisisel.KisiselBilgilerimActivity"
         android:label="@string/menu_kisisel"
-        tools:layout="@layout/fragment_kisisel" />
+        tools:layout="@layout/kisisel_b_fragment" />
 
 
     <activity
