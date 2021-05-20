@@ -104,4 +104,18 @@ public class Retrofit {
         }
         return kartbService;
     }
+    private static UrunResimService urunResimService = null;
+    private static String BASE_URL8="http://192.168.1.107:81/api/urunresim/";
+    public static UrunResimService getUrunResimService () {
+        if ( urunResimService == null) {
+            retrofit2.Retrofit retrofit = new retrofit2.Retrofit
+                    .Builder()
+                    .baseUrl(BASE_URL8)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            urunResimService = retrofit.create(UrunResimService.class);
+
+        }
+        return urunResimService;
+    }
 }

@@ -18,15 +18,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.Listeners.IListItemSelectedListener;
+import com.example.myapplication.Model.UrunResimModel;
 import com.example.myapplication.R;
 import com.example.myapplication.Service.Retrofit;
 import com.example.myapplication.Tablolar.Kategori;
 import com.example.myapplication.Tablolar.Muzayede;
 import com.example.myapplication.Tablolar.Urun;
+import com.example.myapplication.Tablolar.UrunResim;
 import com.example.myapplication.ui.home.HomeAdapter;
 import com.example.myapplication.ui.murunleri.MurunleriActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -71,8 +74,9 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onResponse(Call <ArrayList<Urun>> call, Response <ArrayList<Urun>> response) {
                 Log.e("mesaj", response.body().toString());
-                urunArrayList = response.body();
+                urunArrayList= response.body();
                 uruninitpost(urunArrayList);
+
             }
 
             @Override

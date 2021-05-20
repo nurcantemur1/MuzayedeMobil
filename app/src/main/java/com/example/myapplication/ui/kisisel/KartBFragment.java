@@ -35,6 +35,7 @@ public class KartBFragment extends Fragment {
     Button kartekle,kaydet;
     LocalService localService;
     int id;
+    Dialog dialog;
     List<KartBilgileri> kartBilgilerim;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class KartBFragment extends Fragment {
                     Log.e("hata",String.valueOf(response.code()));
                 }
                 kartBilgilerim = response.body();
+
                 initpost();
                 Toast.makeText(getContext(), "Basarili", Toast.LENGTH_SHORT).show();
             }
@@ -75,7 +77,7 @@ public class KartBFragment extends Fragment {
 
     @SuppressLint("WrongViewCast")
     public void showCustomDialog(View view){
-        final Dialog dialog = new Dialog(view.getContext());
+        dialog = new Dialog(view.getContext());
         dialog.setContentView(R.layout.kartbilgisi_ekle);
         dialog.setCancelable(true);
         bakiye = dialog.findViewById(R.id.bakiye);
@@ -101,6 +103,8 @@ public class KartBFragment extends Fragment {
                     if(!response.isSuccessful()){
                         Log.e("hata",String.valueOf(response.code()));
                     }
+                    getall();
+                    dialog.cancel();
                     Toast.makeText(getContext(), "Basarili", Toast.LENGTH_SHORT).show();
                 }
 
@@ -120,19 +124,41 @@ public class KartBFragment extends Fragment {
         kartBAdapter.setListItemSelectedListener(new IListItemSelectedListener() {
             @Override
             public void onClick(int position, View v) {
-                Call<KartBilgileri> call = Retrofit.getKartBService().varsayilanYap(kartBilgilerim.get(position).getId());
-                call.enqueue(new Callback<KartBilgileri>() {
-                    @Override
-                    public void onResponse(Call<KartBilgileri> call, Response<KartBilgileri> response) {
-                        Toast.makeText(getContext(), "Basarili", Toast.LENGTH_SHORT).show();
-                        getall();
-                    }
+                Button btn = (Button) v;
+                if(btn.getId() == R.id.kartsil){
+                    Call<Boolean> call1 = Retrofit.getKartBService().kartSil(kartBilgilerim.get(position).getId());
+                    call1.enqueue(new Callback<Boolean>() {
+                        @Override
+                        public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                            if (!response.isSuccessful()) {
+                                Log.e("error", String.valueOf(response.code()));
+                            } else {
+                                Toast.makeText(getContext(), "Silindi", Toast.LENGTH_SHORT).show();
+                                getall();
+                            }
+                        }
 
-                    @Override
-                    public void onFailure(Call<KartBilgileri> call, Throwable t) {
-                        Toast.makeText(getContext(), "Basarisiz", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<Boolean> call, Throwable t) {
+                            Toast.makeText(getContext(), "Basarisiz", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                if(btn.getId() == R.id.checkBox2){
+                    Call<KartBilgileri> call = Retrofit.getKartBService().varsayilanYap(kartBilgilerim.get(position).getId());
+                    call.enqueue(new Callback<KartBilgileri>() {
+                        @Override
+                        public void onResponse(Call<KartBilgileri> call, Response<KartBilgileri> response) {
+                            Toast.makeText(getContext(), "Basarili", Toast.LENGTH_SHORT).show();
+                            getall();
+                        }
+
+                        @Override
+                        public void onFailure(Call<KartBilgileri> call, Throwable t) {
+                            Toast.makeText(getContext(), "Basarisiz", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         });
         recyclerView.setHasFixedSize(true);

@@ -22,25 +22,19 @@ public class KisiselBilgilerimActivity extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.kisisel_b_fragment, container, false);
 
-        //Hangi title'lar arası geçiş yapılacak
         ArrayList<String> titleList = new ArrayList<>();
         titleList.add("Kişisel Bilgileri");
         titleList.add("Kart Bilgileri");
 
-        //Hangi fragmentler arası geçiş olacak
         ArrayList<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new KisiselFragment());
         fragmentList.add(new KartBFragment());
 
         ViewPager viewPager = view.findViewById(R.id.viewpager_message);
-        //Adapter'a değişkeblerini veriyoruz
         PageAdapter adapter = new PageAdapter(titleList, fragmentList, getChildFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(adapter);
-        //Tablayoutu fragment içine tanımlattık
         TabLayout tabLayout = view.findViewById(R.id.tablayout);
-        //tablayout'ları swipe yap
         tabLayout.setupWithViewPager(viewPager);
-
 
         return view;
     }

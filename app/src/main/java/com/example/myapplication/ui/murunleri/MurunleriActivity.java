@@ -21,7 +21,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MurunleriActivity extends AppCompatActivity {
-
     int id;
     RecyclerView murunlerilist;
     MurunleriAdapter murunleriAdapter;
@@ -66,5 +65,6 @@ public class MurunleriActivity extends AppCompatActivity {
     public void onBackPressed(){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }

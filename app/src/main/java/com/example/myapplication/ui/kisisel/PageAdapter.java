@@ -17,7 +17,6 @@ public class PageAdapter  extends FragmentStatePagerAdapter {
         mTitleList = titleList;
         mFragmentsList = fragmentsList;
     }
-
     @NonNull
     @Override
     public Fragment getItem(int position) {

@@ -38,7 +38,7 @@ public class CanliActivity  extends AppCompatActivity {
     ProgressBar progressBar;
     Button peyver;
     int counter = 0;
-    int i=7;
+    int i=10;
     int sonpeyUserId=0;
     Thread thread;
     ThreadListener threadListener;
@@ -58,6 +58,7 @@ public class CanliActivity  extends AppCompatActivity {
         Log.e("MuzayedeId", String.valueOf(mid));
         getMUrunleri(mid);
 
+
         setThreadListener(new ThreadListener() {
             @Override
             public void cancel() {
@@ -68,6 +69,13 @@ public class CanliActivity  extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
     private void getMUrunleri(int id) {
         Call<MuzayedeDetayDto> call = Retrofit.getMurunleriService().getMurundetay(id);
         call.enqueue(new Callback<MuzayedeDetayDto>() {
@@ -108,7 +116,7 @@ public class CanliActivity  extends AppCompatActivity {
                 }
                 else{
                     sonpeyUserId = 0;
-                    pey.setText(String.valueOf(urunModel.getUrunFiyat()));
+                    pey.setText("Verilen pey yok");
                     //Toast.makeText(getApplicationContext(), "Basari1111siz", Toast.LENGTH_SHORT).show();
                 }
             }

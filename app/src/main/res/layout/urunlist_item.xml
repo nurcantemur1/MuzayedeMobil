@@ -27,7 +27,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/uruns" />
+                app:srcCompat="@drawable/recgle" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/image_listView"
+                android:layout_width="75dp"
+                android:layout_height="81dp"
+                android:layout_marginBottom="172dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView3"
+                tools:listitem="@layout/image_list_item" />
 
             <TextView
                 android:id="@+id/textView11"

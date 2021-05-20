@@ -24,6 +24,7 @@ import com.example.myapplication.Tablolar.Muzayede;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -32,12 +33,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private IListItemSelectedListener itemSelectedListener;
     private Activity activity;
     private ArrayList<Muzayede> muzayedeArrayList;
+    private List<Timer> timers;
     int sayac = 0;
 
     public HomeAdapter(Activity activity, ArrayList<Muzayede> muzayedeArrayList) {
         this.activity = activity;
         this.muzayedeArrayList = muzayedeArrayList;
+        this.timers = new ArrayList<>();
+        for(int i=0;i<muzayedeArrayList.size();i++){
+            timers.add(new Timer());
+        }
         this.muzayedeArrayList.get(0).setIzlenme(1);
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -75,12 +82,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         if(MyDateFormat.format(muzayede.getDate()).before(new Date())){
             muzayede.setIzlenme(2);
         }
+
         ZamanKontrol(holder, position);
         holder.position = position;
     }
 
     private void ZamanKontrol(final ViewHolder holder, final int position) {
-        final Timer t = new Timer();
+        final Timer t = timers.get(position);
         TimerTask tt = new TimerTask() {
             @Override
             public void run() {
@@ -91,6 +99,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                         if (muzayede.getIzlenme() == 0) {
                             if (muzayede.getDate() != null) {
                                 String kalan = ZamanHesapla(muzayede.getDate());
+
                                 if (kalan.equals("0 gün 0 saat 0 dakika 0 saniye")) {
                                     holder.time.setText("Müzayede başladı");
                                     holder.incele.setText("Canlı");
@@ -114,7 +123,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                             holder.time.setText("Müzayede Bitmiştir");
                             holder.incele.setText("İncele");
                         }
-
                     }
                 });
 
@@ -130,7 +138,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             @Override
             public void run() {
                 sayac++;
-                Log.e("sayac", String.valueOf(sayac));
+                Log.e("sayac55", String.valueOf(sayac));
                 if(sayac == 1500){
                     muzayedeArrayList.get(position).setIzlenme(2);
                 }
